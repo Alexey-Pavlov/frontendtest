@@ -1,10 +1,14 @@
 <script lang="ts" setup>
 // const lastClickedSquare = ref(null)
 
+import { inject } from 'vue'
+
+const chessboardState = inject('chessboardState')
+
 function handleClick(coordinates: string) {
   // lastClickedSquare.value = square
   console.log(coordinates)
-  // Additional logic for highlighting or other functionalities
+  chessboardState.clickedSquares.push(coordinates)
 }
 
 function getCoordinates(index: number): string {

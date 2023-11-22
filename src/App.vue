@@ -2,6 +2,14 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
 import TheChessboard from '@/components/TheChessboard.vue'
+import TheSidebar from '@/components/TheSidebar.vue'
+import { provide, reactive } from 'vue'
+
+const chessboardState = reactive({
+  clickedSquares: []
+})
+
+provide('chessboardState', chessboardState)
 </script>
 
 <template>
@@ -15,7 +23,10 @@ import TheChessboard from '@/components/TheChessboard.vue'
 
   <main>
     <!--    <TheWelcome />-->
-    <TheChessboard />
+    <div class="app-container">
+      <TheChessboard />
+      <TheSidebar />
+    </div>
   </main>
 </template>
 
@@ -49,6 +60,20 @@ main {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+  }
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
   }
 }
 </style>
