@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { inject } from 'vue'
+import type { ChessboardState } from '@/types/common'
+import { defaultChessboardState } from '@/utils/defaultStates'
 
-const chessboardState = inject('chessboardState')
+const chessboardState = inject<ChessboardState>('chessboardState', defaultChessboardState)
 </script>
 
 <template>

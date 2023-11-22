@@ -4,8 +4,9 @@
 import TheChessboard from '@/components/TheChessboard.vue'
 import TheSidebar from '@/components/TheSidebar.vue'
 import { provide, reactive } from 'vue'
+import type { ChessboardState } from '@/types/common'
 
-const chessboardState = reactive({
+const chessboardState: ChessboardState = reactive({
   clickedSquares: []
 })
 
