@@ -3,10 +3,17 @@ import { ref } from 'vue'
 
 // const lastClickedSquare = ref(null)
 
-function handleClick(square: number) {
+function handleClick(coordinates: string) {
   // lastClickedSquare.value = square
-  console.log(square)
+  console.log(coordinates)
   // Additional logic for highlighting or other functionalities
+}
+
+function getCoordinates(index: number): string {
+  const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+  const x = (index - 1) % 8
+  const y = Math.floor((index - 1) / 8)
+  return `${letters[x]}${8 - y}`
 }
 
 function getSquareColor(index: number) {
@@ -23,7 +30,7 @@ function getSquareColor(index: number) {
       :key="index"
       class="chess-square"
       :class="getSquareColor(index)"
-      @click="handleClick(index)"
+      @click="handleClick(getCoordinates(index))"
     ></div>
   </div>
 </template>
