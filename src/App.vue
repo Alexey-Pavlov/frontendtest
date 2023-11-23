@@ -14,13 +14,13 @@ provide('chessboardState', chessboardState)
 </script>
 
 <template>
-  <header>
-    <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->
+  <!--  <header>-->
+  <!--        <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->
 
-    <!--    <div class="wrapper">-->
-    <!--      <HelloWorld msg="You did it!" />-->
-    <!--    </div>-->
-  </header>
+  <!--        <div class="wrapper">-->
+  <!--          <HelloWorld msg="You did it!" />-->
+  <!--        </div>-->
+  <!--  </header>-->
 
   <main>
     <!--    <TheWelcome />-->
@@ -34,11 +34,6 @@ provide('chessboardState', chessboardState)
 <style scoped>
 header {
   line-height: 1.5;
-}
-
-main {
-  width: 100%;
-  height: 100%;
 }
 
 .logo {
@@ -66,15 +61,16 @@ main {
 
 .app-container {
   display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: 70% auto;
+  gap: 32px;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
   .app-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    min-height: 92vh;
+    align-content: start;
   }
 }
 </style>

@@ -9,7 +9,11 @@ const chessboardState = inject<ChessboardState>('chessboardState', defaultChessb
 <template>
   <div class="sidebar">
     <ol class="clicked-squares">
-      <li v-for="(square, index) in chessboardState.clickedSquares" :key="index">
+      <li
+        class="clicked-squares-record"
+        v-for="(square, index) in chessboardState.clickedSquares"
+        :key="index"
+      >
         {{ square }}
       </li>
     </ol>
@@ -21,5 +25,41 @@ const chessboardState = inject<ChessboardState>('chessboardState', defaultChessb
   background-color: var(--color-background-mute);
   color: var(--color-text);
   padding: 20px;
+  height: 100%;
+  overflow: auto;
+  border-radius: 5px;
+}
+
+.clicked-squares {
+  list-style: none;
+  padding: 0;
+  counter-reset: square-counter;
+}
+
+.clicked-squares-record {
+  counter-increment: square-counter;
+  margin-right: 10px;
+}
+
+.clicked-squares-record::before {
+  content: counter(square-counter) '. ';
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    height: 16vh;
+    display: flex;
+    align-items: center;
+    min-height: 70px;
+    overflow-y: scroll;
+    padding: 15px;
+  }
+
+  .clicked-squares {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }
 </style>

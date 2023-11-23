@@ -59,8 +59,8 @@ function getSquareColor(index: number) {
   display: grid;
   grid-template-columns: 30px 1fr;
   grid-template-rows: 1fr 30px;
-  max-width: calc(100% - 60px);
-  max-height: calc(90vh - 60px);
+  max-width: 100%;
+  max-height: 90vh;
   justify-content: center;
   align-items: center;
 }
@@ -108,5 +108,18 @@ function getSquareColor(index: number) {
   justify-content: center;
   align-items: center;
   color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .chessboard-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .chessboard-container {
+    max-width: 100%;
+  }
 }
 </style>
