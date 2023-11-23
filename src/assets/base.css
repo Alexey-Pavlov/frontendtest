@@ -21,7 +21,7 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
   --chess-com-white-square: #e9edcc;
-  --chess-com-black-square: #779954
+  --chess-com-black-square: #779954;
 }
 
 /* semantic color variables for this project */
@@ -76,14 +76,14 @@ body {
     Inter,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     Oxygen,
     Ubuntu,
     Cantarell,
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
     sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
