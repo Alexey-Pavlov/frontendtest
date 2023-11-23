@@ -26,33 +26,42 @@ const chessboardState = inject<ChessboardState>('chessboardState', defaultChessb
   color: var(--color-text);
   padding: 20px;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
   border-radius: 5px;
+  max-height: 90vh;
 }
 
 .clicked-squares {
   list-style: none;
   padding: 0;
   counter-reset: square-counter;
+  column-count: 3;
 }
 
 .clicked-squares-record {
   counter-increment: square-counter;
-  margin-right: 10px;
 }
 
 .clicked-squares-record::before {
   content: counter(square-counter) '. ';
 }
 
+@media (max-width: 992px) {
+  .clicked-squares {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .sidebar {
-    height: 16vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     min-height: 70px;
-    overflow-y: scroll;
+    overflow: auto;
     padding: 15px;
+    max-height: 20vh;
   }
 
   .clicked-squares {
@@ -60,6 +69,7 @@ const chessboardState = inject<ChessboardState>('chessboardState', defaultChessb
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
+    column-count: 1;
   }
 }
 </style>
