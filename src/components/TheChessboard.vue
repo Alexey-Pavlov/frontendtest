@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 // const lastClickedSquare = ref(null)
 
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import type { ChessboardState } from '@/types/common'
 import { defaultChessboardState } from '@/utils/defaultStates'
 
 const chessboardState = inject<ChessboardState>('chessboardState', defaultChessboardState)
+const highlightedSquare = ref<string | null>(null)
 
 function handleClick(coordinates: string) {
-  // lastClickedSquare.value = square
-  console.log(coordinates)
+  highlightedSquare.value = coordinates
   chessboardState.clickedSquares.push(coordinates)
 }
 
@@ -37,7 +37,10 @@ function getSquareColor(index: number) {
       <div
         v-for="index in 64"
         :key="index"
-        :class="getSquareColor(index)"
+        :class="[
+          getSquareColor(index),
+          getCoordinates(index) === highlightedSquare ? 'highlighted' : ''
+        ]"
         class="chess-square"
         @click="handleClick(getCoordinates(index))"
       ></div>
@@ -108,6 +111,11 @@ function getSquareColor(index: number) {
   justify-content: center;
   align-items: center;
   color: var(--color-text);
+}
+
+.highlighted {
+  box-shadow: 0 0 10px 3px rgba(255, 215, 0, 0.7);
+  background-color: #f5f58a;
 }
 
 @media (max-width: 768px) {
