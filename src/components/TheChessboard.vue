@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-// const lastClickedSquare = ref(null)
-
-import { inject, ref } from 'vue'
+import { ref, inject } from 'vue'
 import type { ChessboardState } from '@/types/common'
 import { defaultChessboardState } from '@/utils/defaultStates'
 
